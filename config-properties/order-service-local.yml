@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/OrderService
+    username: ecommerceOrder
+    password: order1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+service:
+  user:
+    url: http://localhost:9001/api/users/
+  product:
+    url: http://localhost:9001/api/
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8087/eureka-discovery/eureka/
+    register-with-eureka: true
+    fetch-registry: true
