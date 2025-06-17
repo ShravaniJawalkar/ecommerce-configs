@@ -7,3 +7,8 @@ eureka:
     fetch-registry: false
     availability-zones:
       default: us-east-1a
+server:
+  address: localhost
+  port: 8087
+  servlet:
+    context-path: /eureka-discovery
