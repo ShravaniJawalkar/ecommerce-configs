@@ -1,6 +1,4 @@
 spring:
-  application:
-    name: product-service
   datasource:
     url: jdbc:postgresql://localhost:5432/ProductService
     username: ecommerceProduct
@@ -18,8 +16,3 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
 
-server:
-  address: localhost
-  port: 8089
-  servlet:
-    context-path: /product-service

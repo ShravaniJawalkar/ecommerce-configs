@@ -1,6 +1,4 @@
 spring:
-  application:
-    name: user-service
   datasource:
     url: jdbc:postgresql://localhost:5432/UserService
     driver-class-name: org.postgresql.Driver
@@ -11,15 +9,9 @@ spring:
     hibernate:
       ddl-auto: update
 
-server:
-  address: localhost
-  port: 8086
-  servlet:
-    context-path: /user-service
-
 eureka:
   client:
     service-url:
-        defaultZone: http://localhost:8087/eureka-discovery/eureka/
+      defaultZone: http://localhost:8087/eureka-discovery/eureka/
     fetch-registry: true
     register-with-eureka: true
