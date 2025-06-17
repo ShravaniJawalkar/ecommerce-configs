@@ -53,7 +53,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,gateway
+        include: health,info,gateway,routes,httptrace
   endpoint:
     health:
       show-details: always
