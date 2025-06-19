@@ -16,15 +16,15 @@ spring:
               predicates:
                 - Path=/api/users/**
               filters:
-                - PrefixPath=/user-service # Adds a prefix to the path for routing
+                - RewritePath=/api/users/(?<segment>.*), /user-service/api/users/${segment}
 
-            # Example route for product service
+            # Fixed route for product service - handles both with and without path segments
             - id: product-service
               uri: lb://PRODUCT-SERVICE
               predicates:
                 - Path=/api/products/**,/api/categories/**
               filters:
-                - PrefixPath=/product-service
+                - RewritePath=/api/(?<service>products|categories)(?<segment>.*), /product-service/api/${service}${segment}
 
             # Example route for order service
             - id: order-service
@@ -32,7 +32,7 @@ spring:
               predicates:
                 - Path=/api/order/**
               filters:
-                - PrefixPath=/order-service
+                - RewritePath=/api/order/(?<segment>.*), /order-service/api/order/${segment}
 
 # Eureka client configuration
 eureka:
