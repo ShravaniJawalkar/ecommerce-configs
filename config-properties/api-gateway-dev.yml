@@ -14,23 +14,23 @@ spring:
             - id: user-service
               uri: lb://USER-SERVICE
               predicates:
-                - Path=/api/users,/api/users/**
+                - Path=/api/users/**
               filters:
                 - RewritePath=/api/users/(?<segment>.*), /user-service/api/users/${segment}
 
-            # Example route for product service
+            # Fixed route for product service - handles both with and without path segments
             - id: product-service
               uri: lb://PRODUCT-SERVICE
               predicates:
-                - Path=/api/products,/api/categories,/api/products/**,/api/categories/**
+                - Path=/api/products/**,/api/categories/**
               filters:
-                - RewritePath=/api/(?<service>products|categories)/(?<segment>.*), /product-service/api/${service}/${segment}
+                - RewritePath=/api/(?<service>products|categories)(?<segment>.*), /product-service/api/${service}${segment}
 
             # Example route for order service
             - id: order-service
               uri: lb://ORDER-SERVICE
               predicates:
-                - Path=/api/order,/api/order/**
+                - Path=/api/order/**
               filters:
                 - RewritePath=/api/order/(?<segment>.*), /order-service/api/order/${segment}
 
