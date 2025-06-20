@@ -33,3 +33,19 @@ resilience4j:
         waitDurationInOpenState: 10000
         failureRateThreshold: 50
         eventConsumerBufferSize: 10
+        record-exceptions:
+          - java.lang.Exception
+          - org.springframework.web.client.HttpServerErrorException
+          - org.springframework.web.client.HttpClientErrorException
+      user-service:
+        registerHealthIndicator: true
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        permitted-number-of-calls-in-half-open-state: 3
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10000
+        event-consumer-buffer-size: 10
+        record-exceptions:
+          - java.lang.Exception
+          - org.springframework.web.client.HttpServerErrorException
+          - org.springframework.web.client.HttpClientErrorException
