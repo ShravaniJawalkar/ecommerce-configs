@@ -32,7 +32,7 @@ spring:
               predicates:
                 - Path=/api/order/**
               filters:
-                - RewritePath=/api/order/(?<segment>.*), /order-service/api/order/${segment}
+                - RewritePath=/api/(?<service>order)(?<segment>.*), /order-service/api/${service}${segment}
 
 # Eureka client configuration
 eureka:
