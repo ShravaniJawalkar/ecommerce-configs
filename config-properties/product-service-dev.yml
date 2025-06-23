@@ -8,6 +8,8 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
+  mvc:
+    dispatch-options-request: true
 
 eureka:
   client:
