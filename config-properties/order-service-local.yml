@@ -11,9 +11,9 @@ spring:
 
 services:
   user:
-    url: http://api-gateway/api/users/
+    url: http://localhost:9001/api/users/
   product:
-    url: http://api-gateway/api/
+    url: http://localhost:9001/api/
 
 eureka:
   client:
