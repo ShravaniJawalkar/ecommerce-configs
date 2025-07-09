@@ -37,7 +37,7 @@ spring:
 # Eureka client configuration
 eureka:
   client:
-    service-url:
+    serviceUrl:
       defaultZone: http://localhost:8087/eureka-discovery/eureka/
 
 # Logging configuration for debugging
