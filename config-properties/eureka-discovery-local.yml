@@ -17,7 +17,7 @@ eureka:
     healthcheck:
       enabled: true
     service-url:
-      defaultZone: http://localhost:8087/eureka/
+      defaultZone: http://localhost:8087/eureka-discovery/eureka/
     eureka-server-connect-timeout-seconds: 60
     eureka-server-read-timeout-seconds: 60
   instance:
