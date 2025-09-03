@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/UserService
+    url: jdbc:postgresql://host.docker.internal:5432/UserService
     driver-class-name: org.postgresql.Driver
     username: ecommerceUser
     password: user1234
@@ -12,6 +12,6 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8087/eureka-discovery/eureka/
+      defaultZone: http://host.docker.internal:8087/eureka-discovery/eureka/
     fetch-registry: true
     register-with-eureka: true
