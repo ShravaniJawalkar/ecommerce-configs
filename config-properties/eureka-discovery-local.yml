@@ -1,21 +1,32 @@
+server:
+  port: 8087
+
 spring:
   application:
-    name: eureka-discovery
+    name: eureka-server
+
 eureka:
   server:
     enable-self-preservation: false
     eviction-interval-timer-in-ms: 10000
+    response-cache-update-interval-ms: 1000
+    response-cache-auto-expiration-in-seconds: 180
   client:
-    fetch-registry: false
     register-with-eureka: false
-    region: us-east
+    fetch-registry: false
+    healthcheck:
+      enabled: false
     service-url:
-      defaultZone: http://localhost:8087/eureka-discovery/eureka/
-    availability-zones:
-      default: us-east-1
+      defaultZone: http://localhost:8087/eureka/
+    eureka-server-connect-timeout-seconds: 60
+    eureka-server-read-timeout-seconds: 60
+  instance:
+    hostname: localhost
+    prefer-ip-address: false
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
 
-server:
-  address: localhost
-  port: 8087
-  servlet:
-    context-path: /eureka-discovery
+logging:
+  level:
+    com.netflix.eureka: WARN
+    com.netflix.discovery: WARN
