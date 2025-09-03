@@ -2,13 +2,18 @@ spring:
   application:
     name: eureka-discovery
 eureka:
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 10000
   client:
-    register-with-eureka: false
     fetch-registry: false
-    availability-zones:
-      default: us-east-1a
+    register-with-eureka: false
+    region: us-east
     service-url:
-      defaultZone: http://host.docker.internal:8087/eureka-discovery/eureka/
+      defaultZone: http://localhost:8087/eureka-discovery/eureka/
+    availability-zones:
+      default: us-east-1
+
 server:
   address: localhost
   port: 8087
