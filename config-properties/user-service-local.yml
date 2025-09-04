@@ -12,6 +12,6 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://host.docker.internal:8087/eureka/
+      defaultZone: http://host.docker.internal:8761/eureka/
     fetch-registry: true
     register-with-eureka: true
